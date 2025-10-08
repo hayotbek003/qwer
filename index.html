@@ -30,16 +30,31 @@
         overflow-x: hidden;
       }
 
-      /* Аватар */
-      .avatar {1
-        width: 500px;
-        height: 500px;
+      .avatar {
+        width: 280px;
+        height: 280px;
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid #00ffff;
         box-shadow: 0 0 25px #00ffff80;
         opacity: 0;
         animation: fadeIn 2s ease forwards, float 4s ease-in-out infinite;
+      }
+
+      /* Планшет */
+      @media (min-width: 768px) {
+        .avatar {
+          width: 1100px;
+          height: 290px;
+        }
+      }
+
+      /* ПК */
+      @media (min-width: 1024px) {
+        .avatar {
+          width: 500px;
+          height: 500px;
+        }
       }
 
       @keyframes fadeIn {
@@ -49,8 +64,12 @@
       }
 
       @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-15px); }
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
       }
 
       .neon-text {
@@ -62,10 +81,9 @@
         box-shadow: 0 0 20px #00ffff80;
       }
 
-      /* Новый фон со звёздами */
       .background-stars {
         position: relative;
-        overflow: hidden;
+        overflow: auto;
         background: radial-gradient(circle at bottom, #020202 0%, #000000 100%);
       }
 
@@ -78,8 +96,12 @@
       }
 
       @keyframes twinkle {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 1; }
+        0%, 100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
       }
 
       @keyframes fadeUp {
@@ -99,13 +121,6 @@
       <h1 class="text-3xl font-bold text-white">
         Pro<span class="text-cyan-400">Coder</span>
       </h1>
-      <nav class="space-x-10 text-lg">
-        <a href="#" class="text-cyan-400 font-semibold">Главная</a>
-        <a href="#" class="hover:text-cyan-400">О нас</a>
-        <a href="#" class="hover:text-cyan-400">Проекты</a>
-        <a href="#" class="hover:text-cyan-400">Навыки</a>
-        <a href="#" class="hover:text-cyan-400">Содержание</a>
-      </nav>
     </header>
 
     <!-- Main -->
@@ -132,11 +147,18 @@
           >
             Наймите меня
           </button>
+
+          <!-- Соцсети -->
           <div class="flex space-x-5 text-cyan-400 text-2xl">
-            <i class="fab fa-github hover:text-white transition"></i>
-            <i class="fab fa-linkedin hover:text-white transition"></i>
-            <i class="fab fa-twitter hover:text-white transition"></i>
-            <i class="fab fa-instagram hover:text-white transition"></i>
+            <a href="https://github.com/hayotbek003" target="_blank">
+              <i class="fab fa-github hover:text-white transition"></i>
+            </a>
+            <a href="https://t.me/Avaz_akm1" target="_blank">
+              <i class="fab fa-telegram hover:text-white transition"></i>
+            </a>
+            <a href="https://www.instagram.com/aziz_akm_1/?igsh=MTI3amFybzhuNDh3bw%3D%3D" target="_blank">
+              <i class="fab fa-instagram hover:text-white transition"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -171,19 +193,19 @@
       © 2025 ProCoder. Все права защищены.
     </footer>
 
-    <!-- Скрипт для динамических звёзд -->
+    <!-- Звёзды -->
     <script>
-      const starCount = 120; // количество звёзд
+      const starCount = 120;
       const container = document.querySelector(".background-stars");
 
       for (let i = 0; i < starCount; i++) {
         const star = document.createElement("div");
         star.classList.add("star");
 
-        const size = Math.random() * 3 + 1; // размер 1-4px
-        const x = Math.random() * 100; // позиция X (%)
-        const y = Math.random() * 100; // позиция Y (%)
-        const delay = Math.random() * 5; // задержка анимации
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const delay = Math.random() * 5;
 
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
